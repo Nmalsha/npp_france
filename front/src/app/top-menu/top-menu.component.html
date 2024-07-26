@@ -1,0 +1,35 @@
+<nav id="myFirst" class="flex">
+  <div class="logoContainer">
+    <a routerLink="/home">
+      <img
+        src="../../assets/img/npp-logo.svg"
+        alt="site logo"
+        class="logi_size"
+    /></a>
+  </div>
+  <div class="burger" (click)="toggleMenu()">
+    <i class="material-icons">{{ isMenuOpen ? "close" : "menu" }}</i>
+  </div>
+  <div class="linksContainer menu flex" [class.is-open]="isMenuOpen">
+    <!-- Social Media Links -->
+    <a
+      href="https://www.facebook.com/profile.php?id=61556517165484"
+      target="_blank"
+      class="menu-item flex"
+      (click)="toggleIsRandomFalse()"
+      ><i class="fab fa-facebook" style="color: #c4294a"></i
+    ></a>
+    <a
+      href="https://x.com/nppfrance001?s=11"
+      target="_blank"
+      class="menu-item flex"
+      ><i class="fab fa-twitter" style="color: #c4294a"></i
+    ></a>
+    <a
+      href="https://www.tiktok.com/@nppfrance?_t=8kpnqLqxynA&_r=1"
+      target="_blank"
+      class="menu-item flex"
+      ><i class="fab fa-tiktok" style="color: #c4294a"></i
+    ></a>
+  </div>
+</nav>

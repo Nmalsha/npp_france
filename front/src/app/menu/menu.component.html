@@ -1,0 +1,42 @@
+<nav id="myFirst" class="flex" style="justify-content: space-evenly">
+  <div class="burger" (click)="toggleMenu()">
+    <i class="material-icons">{{ isMenuOpen ? "close" : "menu" }}</i>
+  </div>
+  <div class="linksContainer menu flex" [class.is-open]="isMenuOpen">
+    <a routerLink="/home" class="menu-item flex" (click)="toggleIsRandomFalse()"
+      >Home
+    </a>
+    <a
+      [routerLink]="['/home']"
+      (click)="toggleIsRandomTrue()"
+      class="menu-item flex"
+      >Events
+    </a>
+
+    <a
+      [routerLink]="['/contact']"
+      (click)="toggleIsRandomFalse()"
+      class="menu-item flex"
+      >Contact us</a
+    >
+    <a
+      [routerLink]="['/about']"
+      (click)="toggleIsRandomFalse()"
+      class="menu-item flex"
+      >About us</a
+    >
+    <a
+      [routerLink]="['/login']"
+      (click)="toggleIsRandomFalse()"
+      class="menu-item flex"
+      >Login</a
+    >
+
+    <a
+      [routerLink]="['/addevent']"
+      (click)="toggleIsRandomFalse()"
+      class="menu-item flex"
+      >Add event</a
+    >
+  </div>
+</nav>

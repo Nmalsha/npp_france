@@ -1,0 +1,79 @@
+<div class="container flex">
+  <div class="top">
+    <h2>Add a event</h2>
+    <br />
+
+    <form (ngSubmit)="onSubmit()" #addeventForm="ngForm">
+      <div class="form-group">
+        <label>Title:</label>
+        <input
+          type="text"
+          [(ngModel)]="title"
+          name="title"
+          id="title"
+          [(ngModel)]="title"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label>Description:</label>
+        <textarea
+          [(ngModel)]="description"
+          name="description"
+          [(ngModel)]="description"
+          class="form-control"
+          required
+        ></textarea>
+      </div>
+      <div class="form-group">
+        <label>Date:</label>
+        <input
+          type="date"
+          [(ngModel)]="date"
+          name="date"
+          (change)="onDateChange($event)"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Photos:</label>
+        <div *ngFor="let photoInput of photoInputs; let i = index">
+          <input
+            type="file"
+            (change)="onPhotoSelected($event, i)"
+            accept="image/*"
+            class="form-control-file"
+          />
+        </div>
+        <button type="button" (click)="addPhotoInput()">
+          Add another photo
+        </button>
+        <div class="photo-previews">
+          <div *ngFor="let photo of photoPreviews">
+            <img [src]="photo" alt="Preview" width="100" height="100" />
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Video URLs:</label>
+        <input
+          type="text"
+          [(ngModel)]="videoUrls"
+          name="videoUrl"
+          class="form-control"
+        />
+        <input
+          type="file"
+          (change)="onVideoSelected($event)"
+          accept="video/*"
+          class="form-control-file"
+          multiple
+        />
+      </div>
+
+      <button type="submit" class="button teal">Add Event</button>
+    </form>
+  </div>
+</div>

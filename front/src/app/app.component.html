@@ -1,0 +1,9 @@
+<app-top-menu></app-top-menu>
+<app-menu></app-menu>
+<app-banner *ngIf="displayBanner()"></app-banner>
+
+<main class="flex">
+  <section class="right">
+    <router-outlet></router-outlet>
+  </section>
+</main>
