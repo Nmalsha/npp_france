@@ -24,6 +24,7 @@ import java.util.Map;
 import java.io.IOException;
 import java.util.Date;
 import java.io.File;
+import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -96,7 +97,14 @@ public class EventController {
         } catch (IOException e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-    } {
+    } 
     
-}
+    @GetMapping("/{id}")
+    public ResponseEntity<Event> getEventById(@PathVariable Long id) {
+        Optional<Event> event = eventService.getEventById(id);
+        return event.map(ResponseEntity::ok)
+                    .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+
 }

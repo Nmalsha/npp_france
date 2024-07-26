@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ContactService {
-  private apiUrl = 'http://localhost:8081/api/send-email';
+  private apiUrl = 'http://localhost:8082/api/send-email';
   constructor(private http: HttpClient) {}
 
   sendContactForm(data: any): Observable<any> {

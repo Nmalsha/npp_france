@@ -5,20 +5,22 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-            .cors().and()
-            .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()).and()
-            .authorizeRequests()
-            .antMatchers("/api/auth/**", "/api/events/all","/**").permitAll()
-            .anyRequest().authenticated();
+   http
+               .cors().and()
+               .csrf().disable()
+               .authorizeRequests()
+               .antMatchers("/**","/api/events/all", "/api/events/create","/api/send-email ").permitAll()
+               .anyRequest().authenticated();
     }
-
+ 
     // @Bean
     // public WebMvcConfigurer corsConfigurer() {
     //     return new WebMvcConfigurer() {
@@ -32,14 +34,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 
-// package com.npp.france.config;
+// // package com.npp.france.config;
 
-// import com.npp.france.security.JwtTokenFilter;
-// import com.npp.france.security.JwtTokenProvider;
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.context.annotation.Bean;
-// import org.springframework.context.annotation.Configuration;
-// import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+// // import com.npp.france.security.JwtTokenFilter;
+// // import com.npp.france.security.JwtTokenProvider;
+// // import org.springframework.beans.factory.annotation.Autowired;
+// // import org.springframework.context.annotation.Bean;
+// // import org.springframework.context.annotation.Configuration;
+// // import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 // import org.springframework.security.config.annotation.web.builders.WebSecurity;
 // import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 // import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -64,8 +66,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             
 //     }
 
-//     @Bean
-//     public PasswordEncoder passwordEncoder() {
+//      @Bean
+//      public PasswordEncoder passwordEncoder() {
 //         return new BCryptPasswordEncoder();
-//     }
-// }
+//    }
+//  }

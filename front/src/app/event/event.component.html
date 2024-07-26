@@ -1,0 +1,62 @@
+<!-- <app-banner *ngIf="displayBanner"></app-banner> -->
+
+<div class="container flex">
+  <div class="top">
+    <div class="top-box flex">
+      <h1>Prosperity Redefined: NPP's Vision for Tomorrow!</h1>
+      <button class="button teal" [routerLink]="['/readmore']">
+        Read more
+      </button>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="cardContainerByCategory flex">
+      <h3>Our events</h3>
+
+      <div class="cardContainer flex">
+        <div class="card" *ngFor="let event of events" style="width: 18rem">
+          <ng-container *ngIf="event.photos && event.photos.length > 0">
+            <img
+              [src]="getImageUrl(event.photos[0])"
+              class="card-img-top"
+              alt="..."
+              [routerLink]="['/events', event.id]"
+            />
+          </ng-container>
+          <div class="card-body">
+            <h5 class="card-title">{{ event.title }}</h5>
+            <p class="card-text">{{ event.description }}</p>
+            <a href="#" class="button teal" [routerLink]="['/events', event.id]"
+              >More details</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <h3>Videos</h3>
+
+      <div class="cardContainer flex">
+        <ng-container *ngFor="let event of events">
+          <ng-container *ngIf="event.videos && event.videos.length > 0">
+            <video
+              width="320"
+              height="240"
+              controls
+              *ngFor="let video of event.videos"
+            >
+              <source [src]="getVideoUrl(video)" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </ng-container>
+        </ng-container>
+      </div>
+
+      <div class="all">
+        <button class="button teal" [routerLink]="['/']">
+          See other events
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

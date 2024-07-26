@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BannerService } from '../service/bannerService';
 import { catchError, of } from 'rxjs';
-import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -14,12 +13,10 @@ export class MenuComponent implements OnInit {
   isAdmin: boolean = false;
 
   constructor(
-    private bannerService: BannerService,
-    private authService: AuthService
+    private bannerService: BannerService // private authService: AuthService
   ) {}
 
   ngOnInit() {
-    this.isAdmin = this.authService.isAuthenticated();
     this.bannerService.displayBanner$.subscribe((status) => {
       this.displayBanner = status;
     });

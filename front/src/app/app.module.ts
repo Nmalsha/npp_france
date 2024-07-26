@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HomeComponent } from './home/home.component';
 import { NgOptimizedImage } from '@angular/common';
 import { MenuComponent } from './menu/menu.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,12 +16,18 @@ import { FormsModule } from '@angular/forms';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { BannerComponent } from './banner/banner.component';
 import { AddEventComponent } from './add-event/add-event.component';
-import { LoginComponent } from './login/login.component';
+import { EventDetailComponent } from './event_details/event_details.component';
+import { EventComponent } from './event/event.component';
+import { HomeComponent } from './home/home.component';
+import { RouterModule } from '@angular/router';
+import { ScrollingTextComponent } from './scrolling-text/scrolling-text.component';
+// import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    EventComponent,
     MenuComponent,
     TopMenuComponent,
     AboutComponent,
@@ -30,8 +35,9 @@ import { LoginComponent } from './login/login.component';
     ReadmoreComponent,
     PageNotFoundComponent,
     BannerComponent,
-    LoginComponent,
+    EventDetailComponent,
     AddEventComponent,
+    ScrollingTextComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,6 +47,7 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     FormsModule,
+    RouterModule,
   ],
   providers: [BannerService],
   bootstrap: [AppComponent],
