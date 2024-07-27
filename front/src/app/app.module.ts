@@ -25,6 +25,7 @@ import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ImageCarouselComponent } from './image-carousel/image-carousel.component';
 import { WhyUsComponent } from './why-us/why-us.component';
 import { WhyWeHaveSiteComponent } from './why-we-have-site/why-we-have-site.component';
+import { FooterComponent } from './footer/footer.component';
 
 // import { LoginComponent } from './login/login.component';
 
@@ -46,6 +47,7 @@ import { WhyWeHaveSiteComponent } from './why-we-have-site/why-we-have-site.comp
     ImageCarouselComponent,
     WhyUsComponent,
     WhyWeHaveSiteComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

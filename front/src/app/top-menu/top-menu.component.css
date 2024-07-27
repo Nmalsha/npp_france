@@ -34,8 +34,7 @@ i {
 .menu-item:hover {
   transform: scale(1.3);
 }
-.logi_size;
-hover {
+.logi_size:hover {
   transform: scale(1.2);
 }
 @media (max-width: 768px) {
