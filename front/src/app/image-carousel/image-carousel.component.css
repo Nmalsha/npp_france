@@ -1,0 +1,27 @@
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth; /* Enable smooth scrolling */
+  gap: 10px; /* Adds space between carousel items */
+  background-color: #f5f5f5; /* Light background for visibility */
+  padding: 20px; /* Padding around the carousel */
+  box-sizing: border-box;
+  white-space: nowrap; /* Prevent line breaks in flex items */
+}
+
+.carousel-item {
+  flex: 0 0 auto; /* Prevent flex items from growing or shrinking */
+  width: 200px; /* Fixed width for each carousel item */
+  height: 150px; /* Fixed height for each carousel item */
+  border: 1px solid #ddd; /* Border for visibility */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white; /* Ensure background color for visibility */
+}
+
+.carousel-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover; /* Ensure image fits within the item */
+}

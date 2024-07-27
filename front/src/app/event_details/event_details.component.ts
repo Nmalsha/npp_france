@@ -10,6 +10,7 @@ import { Event } from '../models/event.model';
 })
 export class EventDetailComponent implements OnInit {
   event: Event | null = null;
+  eventImages: string[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -27,6 +28,10 @@ export class EventDetailComponent implements OnInit {
     this.eventService.getEventById(id).subscribe(
       (event: Event) => {
         this.event = event;
+        // this.eventImages = event.photos.map(
+        //   (photo) => `http://localhost:8082/images/${photo.url}`
+        // );
+        // console.log('event image', this.eventImages);
         console.log('event', event);
       },
       (error) => {
@@ -39,6 +44,7 @@ export class EventDetailComponent implements OnInit {
     if (photo && photo.url) {
       console.log('photos', photo);
       return `http://localhost:8082/images/${photo.url}`;
+      const eventImages = `http://localhost:8082/images/${photo.url}`;
     }
     return '';
   }

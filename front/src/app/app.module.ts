@@ -21,6 +21,9 @@ import { EventComponent } from './event/event.component';
 import { HomeComponent } from './home/home.component';
 import { RouterModule } from '@angular/router';
 import { ScrollingTextComponent } from './scrolling-text/scrolling-text.component';
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { ImageCarouselComponent } from './image-carousel/image-carousel.component';
+
 // import { LoginComponent } from './login/login.component';
 
 @NgModule({
@@ -38,6 +41,7 @@ import { ScrollingTextComponent } from './scrolling-text/scrolling-text.componen
     EventDetailComponent,
     AddEventComponent,
     ScrollingTextComponent,
+    ImageCarouselComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +52,7 @@ import { ScrollingTextComponent } from './scrolling-text/scrolling-text.componen
     BrowserAnimationsModule,
     FormsModule,
     RouterModule,
+    SlickCarouselModule,
   ],
   providers: [BannerService],
   bootstrap: [AppComponent],

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BannerService } from '../service/bannerService';
 import { catchError, of } from 'rxjs';
+import { EventService } from '../service/eventService';
+import { Event } from '../models/event.model';
 
 @Component({
   selector: 'app-home',

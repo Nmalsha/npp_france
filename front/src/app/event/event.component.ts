@@ -39,6 +39,7 @@ export class EventComponent implements OnInit {
       }
     );
   }
+
   getImageUrl(photo: any): string {
     if (photo && photo.url) {
       return `http://localhost:8082/images/${photo.url}`;
