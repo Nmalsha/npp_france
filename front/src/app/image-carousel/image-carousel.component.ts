@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { ChangeDetectorRef } from '@angular/core';
 import { EventService } from '../service/eventService';
 import { Event } from '../models/event.model';
 
@@ -10,10 +9,7 @@ import { Event } from '../models/event.model';
 })
 export class ImageCarouselComponent {
   carouselImages: string[] = [];
-  constructor(
-    private eventService: EventService,
-    private cdr: ChangeDetectorRef
-  ) {}
+  constructor(private eventService: EventService) {}
 
   ngOnInit(): void {
     this.loadEvents();
@@ -25,7 +21,6 @@ export class ImageCarouselComponent {
         console.log('Events received in ImageCarouselComponent:', events);
         this.carouselImages = this.getCarouselImages(events);
         console.log('Carousel images:', this.carouselImages);
-        this.cdr.detectChanges();
       },
       (error) => {
         console.error('Error fetching events:', error);
