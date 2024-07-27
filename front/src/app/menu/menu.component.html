@@ -3,7 +3,10 @@
     <i class="material-icons">{{ isMenuOpen ? "close" : "menu" }}</i>
   </div>
   <div class="linksContainer menu flex" [class.is-open]="isMenuOpen">
-    <a routerLink="/home" class="menu-item flex" (click)="toggleIsRandomFalse()"
+    <a
+      routerLink="/home"
+      class="menu-item flex houver_effect"
+      (click)="toggleIsRandomFalse()"
       >Home
     </a>
     <a

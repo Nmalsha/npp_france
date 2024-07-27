@@ -33,6 +33,10 @@ i {
   align-items: center;
 }
 
+.menu-item:hover {
+  border: 2px solid yellow;
+  transform: scale(1.02);
+}
 @media (max-width: 768px) {
   nav {
     border-bottom: 1px solid var(--grey);

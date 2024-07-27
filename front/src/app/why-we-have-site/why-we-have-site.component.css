@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  flex-direction: row; /* Align containers horizontally */
+  justify-content: space-between; /* Space out the containers */
+  gap: 20px; /* Space between containers */
+  padding: 20px; /* Padding around the container */
+}
+
+.box {
+  transform: scale(1.05);
+  display: flex;
+  flex-direction: column; /* Stack image on top and text on bottom */
+  align-items: center; /* Center items horizontally */
+  text-align: center; /* Center text horizontally */
+  border: 1px solid #ddd; /* Optional: border around each box */
+  border-radius: 8px; /* Optional: rounded corners */
+  padding: 10px; /* Padding inside each box */
+  background-color: #f9f9f9; /* Optional: background color */
+}
+.box:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+}
+.box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.box p {
+  font-size: 1em; /* Adjust text size as needed */
+  margin: 0; /* Remove default margin */
+}
