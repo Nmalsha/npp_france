@@ -1,75 +1,109 @@
-//  package com.npp.france.entity;
-
-//  import javax.persistence.*;
-// import javax.persistence.Id;
-// import javax.persistence.GeneratedValue;
-// import javax.persistence.GenerationType;
-// import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-
-// @Entity
-// @Table(name = "users")
-// public class User {
-
-//     @Id
-//     @GeneratedValue(strategy = GenerationType.IDENTITY)
-//     private Long id;
-
-//     private String email;
-//     private String password;
+package com.npp.france.entity;
 
 
-//      @Column
-//     private String roles; 
-//     // Getters and setters
-//     public Long getId() {
-//         return id;
-//     }
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-//     public void setId(Long id) {
-//         this.id = id;
-//     }
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.springframework.security.core.userdetails.UserDetails;
 
-//     public String getEmail() {
-//         return email;
-//     }
 
-//     public void setEmail(String email) {
-//         this.email = email;
-//     }
+import javax.persistence.*;
+import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collectors;;
 
-//     public String getPassword() {
-//         return password;
-//     }
+@Entity
+public class User implements UserDetails {
 
-//     public void setPassword(String password) {
-//         this.password = password;
-//     }
-//     public String getRoles() {
-//         return roles;
-//     }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-//     public void setRoles(String roles) {
-//         this.roles = roles;
-//     }
+    private String nickname;
 
-//     // Helper methods for roles
-//     public void addRole(String role) {
-//         if (roles == null || roles.isEmpty()) {
-//             roles = role;
-//         } else {
-//             roles += "," + role;
-//         }
-//     }
+    private String email;
 
-//     public boolean hasRole(String role) {
-//         if (roles != null && !roles.isEmpty()) {
-//             String[] roleArray = roles.split(",");
-//             for (String r : roleArray) {
-//                 if (r.equals(role)) {
-//                     return true;
-//                 }
-//             }
-//         }
-//         return false;
-//     }
-// } 
+    private String password;
+
+    
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> roles;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+  
+
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    // Setter for roles
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
+    }
+
+
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return roles.stream()
+                .map(SimpleGrantedAuthority::new)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public String getUsername() {
+        return email;  // Assuming email is used as the username
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+}

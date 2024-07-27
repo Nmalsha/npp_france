@@ -1,18 +1,27 @@
-// package com.npp.france.controller;
+package com.npp.france.controller;
 
-// public class JwtResponse {
+;
 
-//     private String token;
+public class JwtResponse {
+    private String token;
+  
+  
 
-//     public JwtResponse(String token) {
-//         this.token = token;
-//     }
+    // Constructor with both fields
+    public JwtResponse(String token) {
+        this.token = token;
+    
+       
+    }
 
-//     public String getToken() {
-//         return token;
-//     }
+    // Getters and setters
+    public String getToken() {
+        return token;
+    }
 
-//     public void setToken(String token) {
-//         this.token = token;
-//     }
-// }
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    
+}

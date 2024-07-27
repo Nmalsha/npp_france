@@ -34,7 +34,12 @@
       class="menu-item flex"
       >Login</a
     >
-
+    <a
+      [routerLink]="['/signup']"
+      (click)="toggleIsRandomFalse()"
+      class="menu-item flex"
+      >Signup</a
+    >
     <a
       [routerLink]="['/addevent']"
       (click)="toggleIsRandomFalse()"

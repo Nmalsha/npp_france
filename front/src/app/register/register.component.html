@@ -1,6 +1,10 @@
-<div class="login-container">
-  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-    <h2>Login</h2>
+<div class="register-container">
+  <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+    <h2>Register</h2>
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name" type="text" required />
+    </div>
     <div>
       <label for="email">Email:</label>
       <input id="email" formControlName="email" type="email" required />
@@ -14,6 +18,6 @@
         required
       />
     </div>
-    <button type="submit">Login</button>
+    <button type="submit">Register</button>
   </form>
 </div>

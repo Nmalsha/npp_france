@@ -1,28 +1,34 @@
-// import { Component } from '@angular/core';
-// import { Router } from '@angular/router';
-// import { AuthService } from '../service/auth.service';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../service/auth.service';
 
-// @Component({
-//   selector: 'app-login',
-//   templateUrl: './login.component.html',
-//   styleUrls: ['./login.component.css'],
-// })
-// export class LoginComponent {
-//   username: string = '';
-//   password: string = '';
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css'],
+})
+export class LoginComponent {
+  loginForm: FormGroup;
 
-//   constructor(private authService: AuthService, private router: Router) {}
+  constructor(private fb: FormBuilder, private authService: AuthService) {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required]],
+    });
+  }
 
-//   onSubmit(): void {
-//     this.authService.login(this.username, this.password).subscribe(
-//       (response) => {
-//         // Store token or user info
-//         this.authService.setToken(response.token);
-//         this.router.navigate(['/home']);
-//       },
-//       (error) => {
-//         console.error('Login error:', error);
-//       }
-//     );
-//   }
-// }
+  ngOnInit(): void {}
+
+  onLogin() {
+    if (this.loginForm.valid) {
+      this.authService.login(this.loginForm.value).subscribe(
+        (response) => {
+          // Handle successful login
+        },
+        (error) => {
+          // Handle login error
+        }
+      );
+    }
+  }
+}

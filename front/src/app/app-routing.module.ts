@@ -8,7 +8,8 @@ import { ContactComponent } from './contact/contact.component';
 import { AddEventComponent } from './add-event/add-event.component';
 import { EventDetailComponent } from './event_details/event_details.component';
 import { HomeComponent } from './home/home.component';
-// import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -23,11 +24,16 @@ const routes: Routes = [
     component: ReadmoreComponent,
     title: 'Readmore',
   },
-  // {
-  //   path: 'login',
-  //   component: LoginComponent,
-  //   title: 'login',
-  // },
+  {
+    path: 'login',
+    component: LoginComponent,
+    title: 'login',
+  },
+  {
+    path: 'signup',
+    component: RegisterComponent,
+    title: 'signup',
+  },
   {
     path: 'addevent',
     component: AddEventComponent,

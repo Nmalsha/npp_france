@@ -26,6 +26,7 @@ import { ImageCarouselComponent } from './image-carousel/image-carousel.componen
 import { WhyUsComponent } from './why-us/why-us.component';
 import { WhyWeHaveSiteComponent } from './why-we-have-site/why-we-have-site.component';
 import { FooterComponent } from './footer/footer.component';
+import { RegisterComponent } from './register/register.component';
 
 // import { LoginComponent } from './login/login.component';
 
@@ -48,6 +49,7 @@ import { FooterComponent } from './footer/footer.component';
     WhyUsComponent,
     WhyWeHaveSiteComponent,
     FooterComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
