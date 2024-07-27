@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { EventService } from '../service/eventService';
 import { Event } from '../models/event.model';
 
@@ -9,6 +9,14 @@ import { Event } from '../models/event.model';
 })
 export class ImageCarouselComponent {
   carouselImages: string[] = [];
+  slideConfig = {
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    dots: true,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  };
   constructor(private eventService: EventService) {}
 
   ngOnInit(): void {

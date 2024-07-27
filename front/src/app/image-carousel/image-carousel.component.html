@@ -1,5 +1,15 @@
-<div class="carousel">
-  <div *ngFor="let image of carouselImages" class="carousel-item">
-    <img [src]="image" alt="Event Image" class="carousel-image" />
+<!-- <div class="scrolling-container">
+  <div *ngFor="let image of carouselImages" class="scrolling-images">
+    <img [src]="image" alt="Event Image" class="image-item" />
   </div>
-</div>
+</div> -->
+
+<ngx-slick-carousel
+  class="carousel"
+  #slickModal="slick-carousel"
+  [config]="slideConfig"
+>
+  <div ngxSlickItem *ngFor="let image of carouselImages" class="slide">
+    <img [src]="image" alt="Slide image" />
+  </div>
+</ngx-slick-carousel>
