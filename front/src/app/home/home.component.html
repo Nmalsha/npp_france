@@ -1,6 +1,15 @@
 <app-scrolling-text></app-scrolling-text>
 <app-banner *ngIf="displayBanner"></app-banner>
 <!-- <app-image-carousel></app-image-carousel> -->
-<div class="container">
-  <app-image-carousel class="container_images"></app-image-carousel>
+<div class="carousel_wrapper">
+  <div class="left_box"></div>
+  <div class="img_box">
+    <app-image-carousel class="container_images"></app-image-carousel>
+  </div>
 </div>
+<div style="background-color: lightgray">
+  <app-why-us></app-why-us>
+</div>
+<!-- <div class="container">
+  <app-image-carousel class="container_images"></app-image-carousel>
+</div> -->

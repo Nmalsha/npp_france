@@ -23,6 +23,7 @@ import { RouterModule } from '@angular/router';
 import { ScrollingTextComponent } from './scrolling-text/scrolling-text.component';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { ImageCarouselComponent } from './image-carousel/image-carousel.component';
+import { WhyUsComponent } from './why-us/why-us.component';
 
 // import { LoginComponent } from './login/login.component';
 
@@ -42,6 +43,7 @@ import { ImageCarouselComponent } from './image-carousel/image-carousel.componen
     AddEventComponent,
     ScrollingTextComponent,
     ImageCarouselComponent,
+    WhyUsComponent,
   ],
   imports: [
     BrowserModule,
