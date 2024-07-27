@@ -10,6 +10,9 @@ export class ScrollingTextComponent {
     { text: 'this is my first text;n;ng;rfnk:n:knrgj:l,grd:' },
     { text: 'this is my second textgfdsgdgdhtfesjgfegfje,fhgj,hgr' },
     { text: 'this is my third textbfkjhrekgfkrehkejtherg' },
-    // Add more items as needed
+    { text: 'this is my third textbfkjhrekgfkrehkejtherg' },
+    { text: 'this is my third textbfkjhrekgfkrehkejtherg' },
+    { text: 'this is my third textbfkjhrekgfkrehkejtherg' },
+    { text: 'this is my third textbfkjhrekgfkrehkejtherg' },
   ];
 }

@@ -30,50 +30,32 @@ h4 {
   font-size: 1rem;
   font-family: "Nunito Sans", sans-serif;
 }
-.cardContainer {
-  margin-top: 2rem;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
+.listContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 60px;
 }
 
-.card {
-  padding: 1rem;
-  background-color: var(--grey);
-  width: 17rem;
-  border-radius: 10px;
-}
-
-.up {
+.listItem {
   display: flex;
-  justify-content: flex-start;
-  gap: 1.5rem;
+  flex-direction: row;
   align-items: center;
-  margin-bottom: 1.5rem;
 }
 
-.cardImg {
-  width: 5rem;
-  height: 5rem;
+.itemImg {
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
   border-radius: 50%;
-  object-fit: cover;
-}
-
-.icons {
-  gap: 1rem;
-  justify-content: flex-start;
-}
-.icons img {
-  width: 1.7rem;
-  height: 1.7rem;
-  object-fit: cover;
-  cursor: pointer;
+  margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 h4 {
-  font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
+  text-align: center;
+  font-size: 14px;
+  margin: 0;
 }
 
 @media screen and (max-width: 1200px) {

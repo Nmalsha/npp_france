@@ -27,8 +27,14 @@
       tous motivés et enthousiastes à l’idée de travailler sur ce projet et de
       le mener à bien.
     </p>
-
-    <div class="cardContainer flex">
+    <div class="listContainer">
+      <!-- Generate these items dynamically in your component -->
+      <div class="listItem" *ngFor="let item of items">
+        <img class="itemImg" [src]="item.image" alt="{{ item.name }}" />
+        <h4>{{ item.name }}</h4>
+      </div>
+    </div>
+    <!-- <div class="cardContainer flex">
       <div class="card">
         <div class="up">
           <img
@@ -39,17 +45,7 @@
           <h4>first name <br />second name</h4>
         </div>
 
-        <!-- <div class="icons flex">
-          <a href="https://www.linkedin.com/in/ammaria-hellou-5ba85414a/">
-            <img src="../../assets/img/linkedin.png" alt="linkedin" />
-          </a>
-          <a href="https://github.com/ammariahl">
-            <img src="../../assets/img/github.png" alt="portfolio" />
-          </a>
-          <a href="mailto:ammariahellou@gmail.com">
-            <img src="../../assets/img/email.png" alt="mail" />
-          </a>
-        </div> -->
+        
       </div>
       <div class="card">
         <div class="up">
@@ -61,17 +57,7 @@
           <h4>first name <br />second name</h4>
         </div>
 
-        <!-- <div class="icons flex">
-          <a href="https://www.linkedin.com/in/azraellandres/">
-            <img src="../../assets/img/linkedin.png" alt="linkedin" />
-          </a>
-          <a href="https://github.com/AzraeLandres">
-            <img src="../../assets/img/github.png" alt="portfolio" />
-          </a>
-          <a href="mailto:azraellandres.pro@gmail.com">
-            <img src="../../assets/img/email.png" alt="mail" />
-          </a>
-        </div> -->
+        
       </div>
 
       <div class="card">
@@ -94,6 +80,6 @@
           <h4>first name <br />second name</h4>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
