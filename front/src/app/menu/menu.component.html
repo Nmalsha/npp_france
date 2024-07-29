@@ -29,22 +29,30 @@
       >About us</a
     >
     <a
+      *ngIf="!isLoggedIn"
       [routerLink]="['/login']"
       (click)="toggleIsRandomFalse()"
       class="menu-item flex"
       >Login</a
     >
     <a
+      *ngIf="!isLoggedIn"
       [routerLink]="['/signup']"
       (click)="toggleIsRandomFalse()"
       class="menu-item flex"
       >Signup</a
     >
     <a
+      *ngIf="isAdmin"
       [routerLink]="['/addevent']"
       (click)="toggleIsRandomFalse()"
       class="menu-item flex"
       >Add event</a
     >
+    <a *ngIf="isLoggedIn" (click)="onLogout()" class="menu-item flex"
+      >Log out</a
+    >
+
+    <div *ngIf="isLoggedIn">Hello, {{ nickname }}</div>
   </div>
 </nav>

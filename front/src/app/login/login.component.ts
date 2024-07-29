@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
+import { TokenService } from '../service/token.Service';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private tokenService: TokenService
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -30,6 +32,7 @@ export class LoginComponent {
         (response) => {
           console.log('Login successful', response);
           localStorage.setItem('token', response.token);
+          this.tokenService.getNickname();
           this.router.navigate(['/event']);
         },
         (error) => {
