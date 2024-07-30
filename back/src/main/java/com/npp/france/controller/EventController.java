@@ -8,7 +8,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.StringUtils;
-//import com.npp.france.exception.CustomNotFoundException;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
+import java.time.ZonedDateTime;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -69,12 +74,18 @@ public class EventController {
     // }
 
     @PostMapping("/create")
+    @CrossOrigin(origins = "http://localhost:4200")
    public ResponseEntity<Event> createEvent(@RequestParam("title") String title,
                                              @RequestParam("description") String description,
                                              @RequestParam("date") String date,
                                              @RequestParam("photos") List<MultipartFile> photos,
                                              @RequestParam("videos") List<MultipartFile> videos) {
          try {
+
+            //  ZoneId parisZoneId = ZoneId.of("Europe/Paris");
+            DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
+            LocalDate parsedDate = LocalDate.parse(date, formatter);
+            
                // Handle photos
                         for (MultipartFile photo : photos) {
                             String fileName = UUID.randomUUID().toString() + "_" + StringUtils.cleanPath(photo.getOriginalFilename());
@@ -91,13 +102,15 @@ public class EventController {
                             }
                 
                      
-                       
-                        Event createdEvent = eventService.createEvent(title, description, date, photos, videos);
+                      
+                        Event createdEvent = eventService.createEvent(title, description, parsedDate, photos, videos);
                         return new ResponseEntity<>(createdEvent, HttpStatus.CREATED);
-        } catch (IOException e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        }catch (IOException e) {
+        e.printStackTrace();  // Log stack trace for debugging
+        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     } 
+
+                                             }
     
     @GetMapping("/{id}")
     public ResponseEntity<Event> getEventById(@PathVariable Long id) {

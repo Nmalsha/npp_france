@@ -31,10 +31,6 @@ public class JwtUtil {
 
     public JwtUtil(@Value("${jwt.secret}") String secret, @Value("${jwt.expiration}") long expiration) {
            this.secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS512);
-        // this.expiration = expiration;
-        // this.secretKeyBytes = secret.getBytes(StandardCharsets.UTF_8);
-        // byte[] secretBytes = secret.getBytes(StandardCharsets.UTF_8);
-        // this.secretKey = new SecretKeySpec(secretBytes, SignatureAlgorithm.HS512.getJcaName());
         this.expiration = expiration;
     }
 

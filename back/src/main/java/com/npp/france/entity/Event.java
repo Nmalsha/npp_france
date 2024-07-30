@@ -6,6 +6,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import java.time.LocalDate;
 
 
 @Entity
@@ -19,7 +20,7 @@ public class Event {
 
     private String title;
     private String description;
-    private Date date;
+    private LocalDate date;
 
     @OneToMany(mappedBy = "event",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
      @JsonManagedReference("event_photos")
@@ -55,11 +56,11 @@ public class Event {
         this.description = description;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 

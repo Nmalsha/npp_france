@@ -10,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import java.util.UUID;
-
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -40,13 +42,17 @@ public class EventService {
         Files.createDirectories(imageStorageLocation);
         Files.createDirectories(videoStorageLocation);
     }
+    public Date convertToDate(LocalDate dateToConvert) {
+        return Date.from(dateToConvert.atStartOfDay(ZoneId.systemDefault()).toInstant());
+    }
 
-    public Event createEvent(String title, String description, String date,
+    
+    public Event createEvent(String title, String description,LocalDate date,
                              List<MultipartFile> photos, List<MultipartFile> videos) throws IOException {
         Event event = new Event();
         event.setTitle(title);
         event.setDescription(description);
-        event.setDate(new Date());
+        event.setDate(date);
 
         List<EventPhoto> photoEntities = new ArrayList<>();
         for (MultipartFile photo : photos) {
@@ -98,4 +104,7 @@ public class EventService {
     public Optional<Event> getEventById(Long id) {
         return eventRepository.findById(id);
     }
+
+   
+    
 }
