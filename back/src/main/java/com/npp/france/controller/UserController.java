@@ -65,14 +65,8 @@ public class UserController {
         return ResponseEntity.ok(createdUser);
     }
 
-    // Get all users
-    @GetMapping
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
-    }
-
-    // Get user by ID
-    @GetMapping("/{id}")
+       // Get user by ID
+    @GetMapping("/user/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id) {
         Optional<User> user = userService.getUserById(id);
         if (user.isPresent()) {
@@ -81,32 +75,36 @@ public class UserController {
             return ResponseEntity.notFound().build();
         }
     }
-
+   // Get all users
+   @GetMapping("/user/all")
+   public List<User> getAllUsers() {
+       return userService.getAllUsers();
+   }
     // Update user by ID
-    @PutMapping("/{id}")
-    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User userDetails) {
-        Optional<User> user = userService.getUserById(id);
-        if (user.isPresent()) {
-            User existingUser = user.get();
-            existingUser.setNickname(userDetails.getNickname());
-            existingUser.setEmail(userDetails.getEmail());
-            existingUser.setPassword(passwordEncoder.encode(userDetails.getPassword()));
-            User updatedUser = userService.updateUser(existingUser);
-            return ResponseEntity.ok(updatedUser);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+    // @PutMapping("/{id}")
+    // public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User userDetails) {
+    //     Optional<User> user = userService.getUserById(id);
+    //     if (user.isPresent()) {
+    //         User existingUser = user.get();
+    //         existingUser.setNickname(userDetails.getNickname());
+    //         existingUser.setEmail(userDetails.getEmail());
+    //         existingUser.setPassword(passwordEncoder.encode(userDetails.getPassword()));
+    //         User updatedUser = userService.updateUser(existingUser);
+    //         return ResponseEntity.ok(updatedUser);
+    //     } else {
+    //         return ResponseEntity.notFound().build();
+    //     }
+    // }
 
     // Delete user by ID
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
-        if (userService.deleteUser(id)) {
-            return ResponseEntity.noContent().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+    // @DeleteMapping("/user/{id}")
+    // public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
+    //     if (userService.deleteUser(id)) {
+    //         return ResponseEntity.noContent().build();
+    //     } else {
+    //         return ResponseEntity.notFound().build();
+    //     }
+    // }
 
     // Login user
     @PostMapping("/login")

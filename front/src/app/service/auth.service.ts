@@ -1,7 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpErrorResponse,
+} from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -34,6 +39,21 @@ export class AuthService {
   getAuthHeaders(): HttpHeaders {
     return new HttpHeaders({
       Authorization: `Bearer ${this.getAuthToken()}`,
+    });
+  }
+  getAllUsers(): Observable<any[]> {
+    return this.http
+      .get<any[]>(`${this.apiUrl}/user/all`, { headers: this.getAuthHeaders() })
+      .pipe(catchError(this.handleError));
+  }
+  private handleError(error: HttpErrorResponse) {
+    // Log error to console or display it to the user
+    console.error('An error occurred:', error.message);
+    return throwError('Something went wrong; please try again later.');
+  }
+  deleteUser(userId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${userId}`, {
+      headers: this.getAuthHeaders(),
     });
   }
 }

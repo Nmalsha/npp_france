@@ -16,6 +16,7 @@ export class MenuComponent implements OnInit {
   nickname: string | null = '';
   isLoggedIn = false;
   roles: string[] = [];
+  isAdminMenuOpen = false;
 
   constructor(
     private bannerService: BannerService,
@@ -43,7 +44,9 @@ export class MenuComponent implements OnInit {
   toggleMenu(): void {
     this.isMenuOpen = !this.isMenuOpen;
   }
-
+  toggleAdminMenu() {
+    this.isAdminMenuOpen = !this.isAdminMenuOpen;
+  }
   toggleIsRandomTrue(): void {
     this.isMenuOpen = false;
   }

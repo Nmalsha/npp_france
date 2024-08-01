@@ -1,0 +1,14 @@
+<div class="user-space-container">
+  <h2>User Space</h2>
+  <button class="create-user-btn button teal">Create User</button>
+  <ul class="user-list">
+    <li *ngFor="let user of users" class="user-item">
+      <span class="user-info"
+        >{{ user.id }} {{ user.nickname }}, {{ user.email }}</span
+      >
+      <button class="delete-user-btn" (click)="deleteUser(user.id)">
+        Delete
+      </button>
+    </li>
+  </ul>
+</div>

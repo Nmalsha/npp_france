@@ -15,7 +15,7 @@ import { ContactComponent } from './contact/contact.component';
 import { FormsModule } from '@angular/forms';
 import { TopMenuComponent } from './top-menu/top-menu.component';
 import { BannerComponent } from './banner/banner.component';
-import { AddEventComponent } from './add-event/add-event.component';
+import { AddEventComponent } from './admin/add-event/add-event.component';
 import { EventDetailComponent } from './event_details/event_details.component';
 import { EventComponent } from './event/event.component';
 import { HomeComponent } from './home/home.component';
@@ -30,6 +30,8 @@ import { RegisterComponent } from './register/register.component';
 import { DatePipe } from '@angular/common';
 
 import { LoginComponent } from './login/login.component';
+import { UserSpaceComponent } from './admin/user-space/user-space.component';
+import { EventSpaceComponent } from './admin/event-space/event-space.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,8 @@ import { LoginComponent } from './login/login.component';
     FooterComponent,
     RegisterComponent,
     LoginComponent,
+    UserSpaceComponent,
+    EventSpaceComponent,
   ],
   imports: [
     BrowserModule,

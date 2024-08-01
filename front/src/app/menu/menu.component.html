@@ -29,7 +29,7 @@
         class="menu-item"
         >About us</a
       >
-      <a
+      <!-- <a
         *ngIf="!isLoggedIn"
         [routerLink]="['/login']"
         (click)="toggleIsRandomFalse()"
@@ -42,14 +42,29 @@
         (click)="toggleIsRandomFalse()"
         class="menu-item"
         >Signup</a
-      >
-      <a
+      > -->
+      <!-- <a
         *ngIf="isAdmin"
         [routerLink]="['/addevent']"
         (click)="toggleIsRandomFalse()"
         class="menu-item"
         >Add event</a
-      >
+      > -->
+      <div *ngIf="isAdmin" class="menu-item flex" (click)="toggleAdminMenu()">
+        Administration
+        <i class="material-icons">{{
+          isAdminMenuOpen ? "expand_less" : "expand_more"
+        }}</i>
+      </div>
+
+      <div *ngIf="isAdminMenuOpen" class="submenu">
+        <a [routerLink]="['/admin/userspace']" class="submenu-item"
+          >User Space</a
+        >
+        <a [routerLink]="['/admin/eventspace']" class="submenu-item"
+          >Event Space</a
+        >
+      </div>
       <a *ngIf="isLoggedIn" (click)="onLogout()" class="menu-item">Log out</a>
     </div>
     <div *ngIf="isLoggedIn">
