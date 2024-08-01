@@ -29,10 +29,6 @@ export class AddEventComponent {
   apiUrl = 'http://localhost:8082/api/events/create';
 
   onSubmit(): void {
-    // if (!this.date )) {
-    //   console.log('Please select the Date');
-    //   return;
-    // }
     const formattedDate = this.datePipe.transform(this.date, 'yyyy-MM-dd');
     const formData = new FormData();
     formData.append('title', this.title);
@@ -50,9 +46,7 @@ export class AddEventComponent {
     }
 
     const httpOptions = {
-      headers: new HttpHeaders({
-        // enctype: 'multipart/form-data',
-      }),
+      headers: new HttpHeaders({}),
     };
 
     this.http.post<any>(this.apiUrl, formData, httpOptions).subscribe(
@@ -66,13 +60,6 @@ export class AddEventComponent {
       }
     );
   }
-
-  // formatDate(date: Date): string {
-  //   const year = date.getFullYear();
-  //   const month = (date.getMonth() + 1).toString().padStart(2, '0'); // Months are 0-based
-  //   const day = date.getDate().toString().padStart(2, '0');
-  //   return `${year}-${month}-${day}`;
-  // }
 
   resetForm(): void {
     this.title = '';
@@ -90,15 +77,11 @@ export class AddEventComponent {
 
   onPhotoSelected(event: any, index: number): void {
     const files = event.target.files as FileList;
-    // console.log('Files length:', files.length);
-    // console.log('Selected files:', files);
 
     if (files && files.length > 0) {
       this.photoUrls[index] = files[0];
-      // console.log('Photo URLs array:', this.photoUrls);
 
       this.photoPreviews[index] = URL.createObjectURL(files[0]);
-      // console.log('Photo URLs for preview:', this.photoPreviews);
     }
   }
   addPhotoInput(): void {

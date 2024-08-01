@@ -1,5 +1,5 @@
 .register-container {
-  background-color: #f2f2f2; /* light gray background */
+  background-color: #f2f2f2; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +40,7 @@ input {
 }
 
 input:focus {
-  border-color: #28a745; /* green border for register */
+  border-color: #28a745; 
   outline: none;
   box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.25);
 }

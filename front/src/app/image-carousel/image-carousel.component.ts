@@ -44,9 +44,6 @@ export class ImageCarouselComponent {
         event.photos.forEach((photo) => {
           // Assuming each `photo` is a string URL
           images.push(`http://localhost:8082/images/${photo.url}`);
-          // if (typeof photo === 'string') {
-          //   images.push(`http://localhost:8082/images/${photo}`);
-          // }
         });
       }
     });

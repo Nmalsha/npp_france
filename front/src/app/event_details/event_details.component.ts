@@ -28,11 +28,6 @@ export class EventDetailComponent implements OnInit {
     this.eventService.getEventById(id).subscribe(
       (event: Event) => {
         this.event = event;
-        // this.eventImages = event.photos.map(
-        //   (photo) => `http://localhost:8082/images/${photo.url}`
-        // );
-        // console.log('event image', this.eventImages);
-        console.log('event', event);
       },
       (error) => {
         console.error('Error fetching event:', error);
@@ -42,7 +37,6 @@ export class EventDetailComponent implements OnInit {
 
   getImageUrl(photo: any): string {
     if (photo && photo.url) {
-      console.log('photos', photo);
       return `http://localhost:8082/images/${photo.url}`;
       const eventImages = `http://localhost:8082/images/${photo.url}`;
     }

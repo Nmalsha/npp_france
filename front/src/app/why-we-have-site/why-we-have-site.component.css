@@ -1,21 +1,21 @@
 .container {
   display: flex;
-  flex-direction: row; /* Align containers horizontally */
-  justify-content: space-between; /* Space out the containers */
-  gap: 20px; /* Space between containers */
-  padding: 20px; /* Padding around the container */
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
 }
 
 .box {
   transform: scale(1.05);
   display: flex;
-  flex-direction: column; /* Stack image on top and text on bottom */
-  align-items: center; /* Center items horizontally */
-  text-align: center; /* Center text horizontally */
-  border: 1px solid #ddd; /* Optional: border around each box */
-  border-radius: 8px; /* Optional: rounded corners */
-  padding: 10px; /* Padding inside each box */
-  background-color: #f9f9f9; /* Optional: background color */
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  background-color: #f9f9f9;
 }
 .box:hover {
   cursor: pointer;
@@ -29,6 +29,6 @@
 }
 
 .box p {
-  font-size: 1em; /* Adjust text size as needed */
-  margin: 0; /* Remove default margin */
+  font-size: 1em;
+  margin: 0;
 }
