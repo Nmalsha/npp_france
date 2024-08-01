@@ -26,7 +26,7 @@ import { ImageCarouselComponent } from './image-carousel/image-carousel.componen
 import { WhyUsComponent } from './why-us/why-us.component';
 import { WhyWeHaveSiteComponent } from './why-we-have-site/why-we-have-site.component';
 import { FooterComponent } from './footer/footer.component';
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './admin/register/register.component';
 import { DatePipe } from '@angular/common';
 
 import { LoginComponent } from './login/login.component';

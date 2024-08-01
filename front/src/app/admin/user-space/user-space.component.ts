@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-space',
@@ -9,10 +10,14 @@ import { AuthService } from '../../service/auth.service';
 export class UserSpaceComponent implements OnInit {
   users: any[] = [];
 
-  constructor(private authService: AuthService) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
     this.loadUsers();
+  }
+
+  navigateToAddUser(): void {
+    this.router.navigate(['/admin/signup']);
   }
 
   loadUsers(): void {

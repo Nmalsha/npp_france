@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* full height */
+  margin-top:50px !important;
 }
 
 form {

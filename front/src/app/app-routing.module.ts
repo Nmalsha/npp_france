@@ -9,7 +9,7 @@ import { AddEventComponent } from './admin/add-event/add-event.component';
 import { EventDetailComponent } from './event_details/event_details.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './admin/register/register.component';
 import { UserSpaceComponent } from './admin/user-space/user-space.component';
 import { EventSpaceComponent } from './admin/event-space/event-space.component';
 import { AuthGuard } from './service/auth.guard';
@@ -44,7 +44,7 @@ const routes: Routes = [
     title: 'login',
   },
   {
-    path: 'signup',
+    path: 'admin/signup',
     component: RegisterComponent,
     title: 'signup',
   },
