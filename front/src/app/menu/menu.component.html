@@ -3,56 +3,58 @@
     <i class="material-icons">{{ isMenuOpen ? "close" : "menu" }}</i>
   </div>
   <div class="linksContainer menu flex" [class.is-open]="isMenuOpen">
-    <a
-      routerLink="/home"
-      class="menu-item flex houver_effect"
-      (click)="toggleIsRandomFalse()"
-      >Home
-    </a>
-    <a
-      [routerLink]="['/event']"
-      (click)="toggleIsRandomTrue()"
-      class="menu-item flex"
-      >Events
-    </a>
+    <div class="flex container_menu">
+      <a
+        routerLink="/home"
+        class="menu-item houver_effect"
+        (click)="toggleIsRandomFalse()"
+        >Home
+      </a>
+      <a
+        [routerLink]="['/event']"
+        (click)="toggleIsRandomTrue()"
+        class="menu-item"
+        >Events
+      </a>
 
-    <a
-      [routerLink]="['/contact']"
-      (click)="toggleIsRandomFalse()"
-      class="menu-item flex"
-      >Contact us</a
-    >
-    <a
-      [routerLink]="['/about']"
-      (click)="toggleIsRandomFalse()"
-      class="menu-item flex"
-      >About us</a
-    >
-    <a
-      *ngIf="!isLoggedIn"
-      [routerLink]="['/login']"
-      (click)="toggleIsRandomFalse()"
-      class="menu-item flex"
-      >Login</a
-    >
-    <a
-      *ngIf="!isLoggedIn"
-      [routerLink]="['/signup']"
-      (click)="toggleIsRandomFalse()"
-      class="menu-item flex"
-      >Signup</a
-    >
-    <a
-      *ngIf="isAdmin"
-      [routerLink]="['/addevent']"
-      (click)="toggleIsRandomFalse()"
-      class="menu-item flex"
-      >Add event</a
-    >
-    <a *ngIf="isLoggedIn" (click)="onLogout()" class="menu-item flex"
-      >Log out</a
-    >
-
-    <div *ngIf="isLoggedIn">Hello, {{ nickname }}</div>
+      <a
+        [routerLink]="['/contact']"
+        (click)="toggleIsRandomFalse()"
+        class="menu-item"
+        >Contact us</a
+      >
+      <a
+        [routerLink]="['/about']"
+        (click)="toggleIsRandomFalse()"
+        class="menu-item"
+        >About us</a
+      >
+      <a
+        *ngIf="!isLoggedIn"
+        [routerLink]="['/login']"
+        (click)="toggleIsRandomFalse()"
+        class="menu-item"
+        >Login</a
+      >
+      <a
+        *ngIf="!isLoggedIn"
+        [routerLink]="['/signup']"
+        (click)="toggleIsRandomFalse()"
+        class="menu-item"
+        >Signup</a
+      >
+      <a
+        *ngIf="isAdmin"
+        [routerLink]="['/addevent']"
+        (click)="toggleIsRandomFalse()"
+        class="menu-item"
+        >Add event</a
+      >
+      <a *ngIf="isLoggedIn" (click)="onLogout()" class="menu-item">Log out</a>
+    </div>
+    <div *ngIf="isLoggedIn">
+      <div *ngIf="isAdmin">Hello, Admin</div>
+      <div *ngIf="!isAdmin">Hello comrade, {{ nickname }}</div>
+    </div>
   </div>
 </nav>

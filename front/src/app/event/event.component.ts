@@ -34,7 +34,7 @@ export class EventComponent implements OnInit {
       .pipe(
         catchError((error) => {
           console.error('Error fetching events:', error);
-          return of([]); // Handle error case by returning an empty array
+          return of([]);
         })
       )
       .subscribe(

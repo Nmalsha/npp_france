@@ -1,15 +1,15 @@
 <div class="register-container">
   <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
     <h2>Register</h2>
-    <div>
+    <div class="form-group">
       <label for="nickname">Nickname:</label>
       <input id="nickname" formControlName="nickname" type="text" required />
     </div>
-    <div>
+    <div class="form-group">
       <label for="email">Email:</label>
       <input id="email" formControlName="email" type="email" required />
     </div>
-    <div>
+    <div class="form-group">
       <label for="password">Password:</label>
       <input
         id="password"
@@ -18,6 +18,6 @@
         required
       />
     </div>
-    <button type="submit">Register</button>
+    <button type="submit" class="button teal">Register</button>
   </form>
 </div>

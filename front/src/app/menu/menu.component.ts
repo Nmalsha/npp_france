@@ -45,8 +45,7 @@ export class MenuComponent implements OnInit {
   }
 
   toggleIsRandomTrue(): void {
-    // this.travelService.isRandom = true;
-    // console.log('Random = True');
+    this.isMenuOpen = false;
   }
   onLogout(): void {
     this.tokenService.logout();

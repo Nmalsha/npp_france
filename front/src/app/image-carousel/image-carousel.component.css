@@ -1,21 +1,19 @@
-/* .carousel {
-  width: 100%;
-}
-
-.slide img {
-  width: 100%;
-  display: block;
-} */
 .carousel {
-  width: 80%; /* Adjust this value as needed */
-  max-width: 800px; /* Optional: Set a maximum width */
-  margin: 0 auto; /* Center the carousel horizontally */
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .slide img {
-  width: 100%; /* Ensure the image takes up the full width of the slide */
-  height: auto; /* Maintain aspect ratio */
-  max-width: 100%; /* Ensure the image does not exceed the container's width */
-  max-height: 300px; /* Optional: Set a maximum height for images */
-  object-fit: cover; /* Optional: Cover the container without distortion */
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  .bacarouselnner {
+    max-width: 768px;
+    height: 300px;
+  }
 }

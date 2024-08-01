@@ -1,11 +1,11 @@
 <div class="login-container">
   <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
     <h2>Login</h2>
-    <div>
+    <div class="form-group">
       <label for="email">Email:</label>
       <input id="email" formControlName="email" type="email" required />
     </div>
-    <div>
+    <div class="form-group">
       <label for="password">Password:</label>
       <input
         id="password"
@@ -14,6 +14,6 @@
         required
       />
     </div>
-    <button type="submit">Login</button>
+    <button type="submit" class="button teal">Login</button>
   </form>
 </div>
