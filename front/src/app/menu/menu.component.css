@@ -51,7 +51,7 @@ i {
   .linksContainer {
     display: none;
 
-    width: 200px;
+    width: 150px;
     position: absolute;
     top: 60px;
     left: 0;
@@ -65,7 +65,9 @@ i {
   .linksContainer.is-open {
     display: flex;
   }
-
+  .linksContainer a {
+    font-size: 1rem;
+  }
   .menu-item {
     padding: 15px 0;
     width: 100%;

@@ -29,3 +29,11 @@
 .content_box {
   flex: 70%;
 }
+@media (max-width: 768px) {
+  .app_tp_menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

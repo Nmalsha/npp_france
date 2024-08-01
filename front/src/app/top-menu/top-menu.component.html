@@ -1,4 +1,4 @@
-<nav id="myFirst" class="flex">
+<nav id="myFirst" class="flex_nav">
   <div class="logoContainer">
     <a routerLink="/home">
       <img
@@ -7,16 +7,15 @@
         class="logi_size"
     /></a>
   </div>
-  <div class="burger" (click)="toggleMenu()">
+  <!-- <div class="burger">
     <i class="material-icons">{{ isMenuOpen ? "close" : "menu" }}</i>
-  </div>
-  <div class="linksContainer menu flex" [class.is-open]="isMenuOpen">
+  </div> -->
+  <div class="linksContainer menu flex">
     <!-- Social Media Links -->
     <a
       href="https://www.facebook.com/profile.php?id=61556517165484"
       target="_blank"
       class="menu-item flex"
-      (click)="toggleIsRandomFalse()"
       ><i class="fab fa-facebook" style="color: #c4294a"></i
     ></a>
     <a

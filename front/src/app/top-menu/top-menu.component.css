@@ -37,8 +37,16 @@ i {
 .logi_size:hover {
   transform: scale(1.2);
 }
+.flex_nav {
+  display: flex;
+  flex-direction: row;
+}
 @media (max-width: 768px) {
-  nav {
+  .flex_nav {
+    display: flex;
+    flex-direction: column;
+  }
+  /* nav {
     border-bottom: 1px solid var(--grey);
   }
   .menu {
@@ -66,5 +74,5 @@ i {
     font-size: 0.8rem;
     font-weight: 400;
     color: var(--black);
-  }
+  } */
 }

@@ -1,10 +1,10 @@
-<app-top-menu></app-top-menu>
+<app-top-menu class="app_tp_menu"></app-top-menu>
 <app-menu></app-menu>
 <app-banner *ngIf="displayBanner()"></app-banner>
 
 <main class="flex">
   <section class="right">
     <router-outlet></router-outlet>
+    <app-footer></app-footer>
   </section>
 </main>
-<app-footer></app-footer>
